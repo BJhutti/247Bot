@@ -1,6 +1,6 @@
 // native file system module. can read directories and choose files
 const fs = require('node:fs');
-
+//testing mac os
 //native path utilit module. constructs paths to files, with auto detection for OS.
 const path = require('node:path');
 
