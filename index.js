@@ -7,6 +7,8 @@ const path = require('node:path');
 // Require the necessary discord.js classes
 const { Client,  Collection, Events, GatewayIntentBits } = require('discord.js');
 const { token } = require('./config.json');
+const addUser = require('./addUser');
+const addOne = require('./addOne')
 
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.DirectMessages, GatewayIntentBits.MessageContent] });
@@ -47,7 +49,8 @@ client.on(Events.InteractionCreate, async interaction => {
         return;
     }
     try {
-        await command.execute(interaction);
+        str = await command.execute(interaction);
+        console.log(str);
     } catch (error) {
         console.error(error);
         if (interaction.replied || interaction.deferred) {
@@ -60,16 +63,28 @@ client.on(Events.InteractionCreate, async interaction => {
 
 
 
-client.on("messageCreate", message => {
+client.on("messageCreate", async message => {
     // || "String" like you did before would return "true" in every single instance, 
     // this is case sensitive, if you wanna make it case insensitive 
     // use `message.content.toLowerCase() == "lowercasestring"`  
-    if (!message.author.bot) {
-        if (message.content == "247") {
-            message.channel.send(":247:");
+    try {
+        if (!message.author.bot) {
+            date = new Date(message.createdTimestamp)
+
+            if (message.content == "247" & message.channelId == "1272264398567637046") {
+                if (date.getMinutes() == 37 & (date.getHours() == 2 | date.getHours() == 23)) {
+                    
+                    
+                    await addOne(message.author.username);
+                    await message.react('👍');
+                }
+            }
         }
-        console.log(message.content);
     }
+    catch (err) {
+        console.error(err);
+    }
+
 
     
 });

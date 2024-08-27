@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "name": "Cube",
+      "count": 1
+    },
+    {
+      "name": "Eric",
+      "count": 0
+    },
+    {
+      "name": "Charlie",
+      "count": 35
+    },
+    {
+      "name": "opsione",
+      "count": 1
+    },
+    {
+      "name": "Pacstreet",
+      "count": 7
+    },
+    {
+      "name": "Me",
+      "count": 1
+    },
+    {
+      "name": "opsine",
+      "count": 10
+    }
+  ]
+}

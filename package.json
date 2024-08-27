@@ -4,13 +4,14 @@
   "description": "A discord bot that keeps track of who has typed 247 at 2:47 the most.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "go": "node deploy-commands.js & node index.js"
   },
   "author": "Opsine",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^14.15.3",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "jsonfile": "^6.1.0"
   },
   "devDependencies": {
     "eslint": "^9.9.0"

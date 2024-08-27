@@ -6,8 +6,8 @@ module.exports = {
 		.setName('leaderboard')
 		.setDescription('Shows current leaderboard'),
 	async execute(interaction) {
-        arr = LeaderBoard();
-        await interaction.reply(arr);
+		board = await LeaderBoard()
+		await interaction.reply(board)
   
 	},
 };
