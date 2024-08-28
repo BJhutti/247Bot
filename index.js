@@ -72,23 +72,19 @@ client.on("messageCreate", async message => {
             date = new Date(message.createdTimestamp)
 
             if (message.content == "247" & message.channelId == "1272264398567637046") {
-                if (date.getMinutes() == 37 & (date.getHours() == 2 | date.getHours() == 23)) {
+                //if (date.getMinutes() == 47 & (date.getHours() == 2 | date.getHours() == 14)) {
                     
                     
                     await addOne(message.author.username);
                     await message.react('👍');
-                }
+                //}
             }
         }
     }
     catch (err) {
         console.error(err);
     }
-
-
-    
 });
-
 
 
 // Log in to Discord with your client's token

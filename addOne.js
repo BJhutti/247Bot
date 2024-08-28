@@ -1,6 +1,6 @@
 const jsonfile = require("jsonfile");
 const addUser = require("./addUser");
-const file = './leaderboard.json'
+const file = './data/leaderboard.json'
 
 async function addOne(name) {
     try {

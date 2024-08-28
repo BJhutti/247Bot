@@ -1,5 +1,5 @@
 const jsonfile = require("jsonfile");
-const file = './leaderboard.json'
+const file = './data/leaderboard.json'
 
 
 

@@ -1,4 +1,4 @@
-const file = './leaderboard.json';
+const file = './data/leaderboard.json';
 const jsonfile = require('jsonfile');
 const person  = {"Name": "Opsine", "count" : 1};
 name = "Opsine"
