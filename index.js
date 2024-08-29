@@ -99,8 +99,8 @@ client.on("messageCreate", async message => {
     // use `message.content.toLowerCase() == "lowercasestring"`  
     try {
         if (!message.author.bot) {
-            date = new Date(message.createdTimestamp)
-            console.log(date.getUTCHours())
+            date = new Date(message.createdTimestamp);
+            console.log(date.getUTCHours(), date.getMinutes());
             if (message.content == "<:247:829174353152573481>" & message.channelId == channelID) {
                 if (date.getMinutes() == 47 & ((date.getUTCHours() - min) == 2 | (date.getUTCHours() - min) == 14)) { //pst
                     
