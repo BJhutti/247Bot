@@ -9,7 +9,7 @@ async function getStreaks() {
         nameCounts = data["users"];
         nameCounts = nameCounts.sort((a, b) => b["streak"] - a["streak"]);
        
-        combinedString = "";
+        combinedString = "CURRENT STREAKS \n\n";
         for(item of nameCounts) {
             
             addString = `${item["name"]} : ${item["streak"]}`

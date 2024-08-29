@@ -9,7 +9,7 @@ async function getLeaderboard() {
         nameCounts = data["users"];
         nameCounts = nameCounts.sort((a, b) => b["count"] - a["count"]);
        
-        combinedString = "";
+        combinedString = "THE <:247:829174353152573481> LEADERBOARD\n\n";
         for(item of nameCounts) {
             
             addString = `${item["name"]} : ${item["count"]}`

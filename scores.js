@@ -1,7 +1,9 @@
 const jsonfile = require("jsonfile");
 const file = './data/buffer.json';
 const boardFile = './data/leaderboard.json';
-
+const { highest } = require('./config.json')
+const config = './config.json'
+ 
 async function scores() {
     try {
         const bufferData = await jsonfile.readFile(file);
@@ -15,6 +17,13 @@ async function scores() {
                 user["streak"] = 0;
             } else {
                 user["streak"] += 1;
+                const high = await jsonfile.readFile(config);
+                if (user["streak"] > high["highestCount"]) {
+                    high["highestCount"] = user["streak"];
+                    high["highestName"] = user["name"];
+                    await jsonfile.writeFile(config, high, {spaces : 2});
+                }
+
                 user["count"] += 1;
             }
         }
