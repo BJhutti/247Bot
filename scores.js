@@ -1,47 +1,40 @@
 const jsonfile = require("jsonfile");
-const addUser = require("./addUser");
-const file = './data/buffer.json'
-const boardFile = './data/leaderboard.json'
-
+const file = './data/buffer.json';
+const boardFile = './data/leaderboard.json';
 
 async function scores() {
     try {
-        data = await jsonfile.readFile(file);
-        board = await jsonfile.readFile(boardFile);
-        data = new Set(data) //unnesecary now
+        const bufferData = await jsonfile.readFile(file);
+        const data = new Set(bufferData);
+        const board = await jsonfile.readFile(boardFile);
+        const users = board["users"];
 
-        //streak:
-        users = board["users"];
-        for(i = 0; i < users.length; i++) {
-            if (!data.has(users[i]["name"])) {
-                users[i]["streak"] = 0
-                await jsonfile.writeFile(boardFile, board, {spaces : 2})
-
-            }
-            else {
-                users[i]["streak"] += 1
-            }
-        }
-
-
-        for (username of data) {
-            user = board.users.find(u => u.name == username);
-
-            if (user) {
+        // Update streaks and counts
+        for (const user of users) {
+            if (!data.has(user["name"])) {
+                user["streak"] = 0;
+            } else {
+                user["streak"] += 1;
                 user["count"] += 1;
-                await jsonfile.writeFile(boardFile, board, {spaces : 2})
-            }
-            else {
-                addUser(username)
             }
         }
-        await jsonfile.writeFile(file, []);
-        return data.size
-    }
-    catch (err) {
-        console.error(err);
-    }
 
+        // Add new users
+        for (const username of data) {
+            let user = users.find(u => u.name === username);
+            if (!user) {
+                users.push({ name: username, count: 1, streak: 1 });
+            }
+        }
+
+        // Write updates to boardFile and clear buffer file
+        await jsonfile.writeFile(boardFile, board, { spaces: 2 });
+        await jsonfile.writeFile(file, []);
+
+        return data.size;
+    } catch (err) {
+        console.error('Error in scores function:', err);
+    }
 }
-scores()
-module.exports = scores
+
+module.exports = scores;
