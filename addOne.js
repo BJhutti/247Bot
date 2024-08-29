@@ -1,20 +1,18 @@
 const jsonfile = require("jsonfile");
 const addUser = require("./addUser");
-const file = './data/leaderboard.json'
+const file = './data/buffer.json'
 
 async function addOne(name) {
     try {
         data = await jsonfile.readFile(file);
-
-        user = data.users.find(u => u.name == name);
-        if (user) {
-            user["count"] += 1;
-            await jsonfile.writeFile(file, data, {spaces : 2})
+        if (data.includes(name)) {
+            return false
         }
-        else {
-            addUser(name)
-        }
+        data.push(name)
+ 
 
+        await jsonfile.writeFile(file, data, {spaces : 2})
+        return true;
         
     }
     catch (err) {

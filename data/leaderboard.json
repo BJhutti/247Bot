@@ -2,11 +2,63 @@
   "users": [
     {
       "name": "opsine",
-      "count": 3
+      "count": 2,
+      "streak": 0
     },
     {
-      "name": "shazelis",
-      "count": 13
+      "name": "cubebc",
+      "count": 3,
+      "streak": 3
+    },
+    {
+      "name": "urgotult",
+      "count": 3,
+      "streak": 3
+    },
+    {
+      "name": "nervysage",
+      "count": 1,
+      "streak": 0
+    },
+    {
+      "name": "jovann",
+      "count": 3,
+      "streak": 3
+    },
+    {
+      "name": "seesawmode",
+      "count": 1,
+      "streak": 0
+    },
+    {
+      "name": "topplayerliam",
+      "count": 2,
+      "streak": 2
+    },
+    {
+      "name": "capsize.",
+      "count": 1,
+      "streak": 0
+    },
+    {
+      "name": "ouchbc",
+      "count": 2,
+      "streak": 2
+    },
+    {
+      "name": "legit247",
+      "count": 2,
+      "streak": 2
+    },
+    {
+      "name": "pacstreet",
+      "count": 2,
+      "streak": 2
+    },
+    {
+      "name": "zeta5",
+      "count": 1,
+      "streak": 1
     }
   ]
 }

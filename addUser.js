@@ -8,7 +8,7 @@ async function addUser(name) {
         const data = await jsonfile.readFile(file);
 
         // Step 4: Modify the Data
-        const newUser = { "name": name, "count" : 1};
+        const newUser = { "name": name, "count" : 1, "streak" : 1};
         data.users.push(newUser);
 
         // Step 5: Write the Updated Data Back to the JSON File Asynchronously
@@ -20,5 +20,4 @@ async function addUser(name) {
         return []
     }
 }
-
 module.exports = addUser
